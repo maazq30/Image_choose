@@ -40,7 +40,7 @@ ActivityResultLauncher<Intent> resultlauncher;
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        btn = findViewById(R.id.button);
+        btn = findViewById(R.id.btn);
         imageview =findViewById(R.id.imageView2);
         registerResult();
         btn.setOnClickListener(view ->pickimage());
