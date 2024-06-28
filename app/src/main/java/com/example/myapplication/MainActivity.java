@@ -1,13 +1,18 @@
 package com.example.myapplication;
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
@@ -27,6 +32,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     Button btn;
     ImageView imageview;
+    String filename_text;
 ActivityResultLauncher<Intent> resultlauncher;
 
     @Override
@@ -45,6 +51,8 @@ ActivityResultLauncher<Intent> resultlauncher;
         registerResult();
         btn.setOnClickListener(view ->pickimage());
 
+
+
     }
     private void pickimage(){
         Intent intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
@@ -61,10 +69,11 @@ ActivityResultLauncher<Intent> resultlauncher;
                     @Override
                     public void onActivityResult(ActivityResult result){
                         try {
-                            Uri imageuri = result.getData().getData();
-                            imageview.setImageURI(imageuri);
+                            Uri uri = result.getData().getData();
+                            imageview.setImageURI(uri);
+
                         }catch (Exception e){
-                            Toast.makeText(MainActivity.this, "die", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Pic" , Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
