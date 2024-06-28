@@ -29,6 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/Circular"
+        app:circularflow_radiusInDP="10dp"
 
 
         tools:ignore="ImageContrastCheck"
